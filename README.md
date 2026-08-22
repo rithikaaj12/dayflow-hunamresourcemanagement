@@ -111,6 +111,8 @@ The current version focuses on the frontend experience and core dashboard interf
 ## 👩‍💻 Author
 
 **Tharunika**
+**Rithikaa**
+**Rathika**
 
 Computer Science Engineering — Artificial Intelligence & Machine Learning
 
