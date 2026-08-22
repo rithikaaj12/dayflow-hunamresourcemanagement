@@ -1,0 +1,6 @@
+{
+  "name": "Dayflow HRMS",
+  "description": "Every Workday, Perfectly Aligned. Modern HRMS platform for attendance, workflow, leave management, analytics, and employee alignment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
