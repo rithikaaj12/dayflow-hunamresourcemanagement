@@ -1,0 +1,110 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String           @id @default(uuid())
+  employeeId   String           @unique
+  name         String
+  email        String           @unique
+  passwordHash String
+  role         String           @default("EMPLOYEE") // "ADMIN" | "EMPLOYEE"
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  profile      EmployeeProfile?
+  attendances  Attendance[]
+  leaves       LeaveRequest[]
+  payrolls     Payroll[]
+  notifications Notification[]
+
+  @@map("users")
+}
+
+model EmployeeProfile {
+  id               String   @id @default(uuid())
+  userId           String   @unique
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  phone            String?
+  address          String?
+  dateOfBirth      String?
+  department       String   @default("General")
+  designation      String   @default("Employee")
+  joiningDate      String
+  employmentType   String   @default("Full-Time") // "Full-Time" | "Part-Time" | "Contract" | "Intern"
+  reportingManager String?
+  profilePicture   String?
+  basicSalary      Float    @default(0.0)
+  allowances       Float    @default(0.0)
+  deductions       Float    @default(0.0)
+  netSalary        Float    @default(0.0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("employee_profiles")
+}
+
+model Attendance {
+  id           String   @id @default(uuid())
+  employeeId   String
+  user         User     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  date         String   // YYYY-MM-DD
+  checkIn      String?  // HH:mm:ss
+  checkOut     String?  // HH:mm:ss
+  workingHours Float    @default(0.0)
+  status       String   @default("Present") // "Present" | "Absent" | "Half-day" | "Leave"
+  createdAt    DateTime @default(now())
+
+  @@unique([employeeId, date])
+  @@map("attendance")
+}
+
+model LeaveRequest {
+  id           String   @id @default(uuid())
+  employeeId   String
+  user         User     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  leaveType    String   // "Paid Leave" | "Sick Leave" | "Unpaid Leave"
+  startDate    String   // YYYY-MM-DD
+  endDate      String   // YYYY-MM-DD
+  numberOfDays Int      @default(1)
+  reason       String
+  status       String   @default("Pending") // "Pending" | "Approved" | "Rejected"
+  adminComment String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("leave_requests")
+}
+
+model Payroll {
+  id          String   @id @default(uuid())
+  employeeId  String
+  user        User     @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  payPeriod   String   // e.g. "August 2026"
+  basicSalary Float
+  allowances  Float
+  deductions  Float
+  netSalary   Float
+  status      String   @default("Paid") // "Paid" | "Pending" | "Processing"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("payroll")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   @default("info") // "info" | "success" | "warning" | "error"
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
