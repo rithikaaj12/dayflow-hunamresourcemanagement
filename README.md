@@ -3,7 +3,7 @@
 
 DAYFLOW is a modern HR and workplace productivity platform designed to visualize and optimize the flow of a workday.
 
-## 🚀 Overview
+##  Overview
 
 DAYFLOW brings employee attendance, working hours, tasks, productivity, and workplace insights into one simple and intuitive platform.
 
@@ -11,17 +11,17 @@ The core idea is:
 
 **TIME → FLOW → PRODUCTIVITY**
 
-## ✨ Features
+##  Features
 
-* ⏱️ **Time Tracking** — Monitor working hours and daily activity.
-* 📋 **Task Management** — Organize and track daily tasks.
-* 📊 **Productivity Analytics** — View meaningful performance insights.
-* 👤 **Employee Management** — Manage employee information and activities.
-* 📅 **Attendance Management** — Track attendance and work schedules.
-* 🎯 **Modern Dashboard** — Get a quick overview of the workday.
-* 📱 **Responsive Design** — Works across desktop, tablet, and mobile screens.
+*  **Time Tracking** — Monitor working hours and daily activity.
+*  **Task Management** — Organize and track daily tasks.
+*  **Productivity Analytics** — View meaningful performance insights.
+*  **Employee Management** — Manage employee information and activities.
+*  **Attendance Management** — Track attendance and work schedules.
+*  **Modern Dashboard** — Get a quick overview of the workday.
+*  **Responsive Design** — Works across desktop, tablet, and mobile screens.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * React
 * JavaScript / TypeScript
@@ -29,7 +29,7 @@ The core idea is:
 * CSS
 * Git & GitHub
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 DAYFLOW/
@@ -44,7 +44,7 @@ DAYFLOW/
 └── README.md
 ```
 
-## ⚙️ Installation
+##  Installation
 
 Clone the repository:
 
@@ -76,7 +76,7 @@ Open the local URL shown in the terminal, usually:
 http://localhost:5173
 ```
 
-## 🎨 Design Philosophy
+##  Design Philosophy
 
 DAYFLOW focuses on creating a clean, professional, and distraction-free workplace experience.
 
@@ -89,7 +89,7 @@ The interface uses:
 * Simple navigation
 * Modern workplace aesthetics
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 * AI-powered productivity insights
 * Employee authentication
@@ -102,13 +102,13 @@ The interface uses:
 * Admin and employee role-based dashboards
 * Cloud deployment
 
-## 📌 Project Status
+##  Project Status
 
 **Frontend Prototype — In Development**
 
 The current version focuses on the frontend experience and core dashboard interface.
 
-## 👩‍💻 Author
+##  Author
 
 **Tharunika**
 **Rithikaa**
